@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcut xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shortcutId="matches"
+    android:enabled="true"
+    android:icon="@drawable/ic_notification_icon"
+    android:shortcutShortLabel="@string/app_name"
+    android:shortcutLongLabel="View Latest Matches">
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:targetPackage="com.tangofc.app"
+        android:targetClass="com.tangofc.app.MainActivity" />
+    <categories android:name="android.shortcut.conversation" />
+</shortcut>
