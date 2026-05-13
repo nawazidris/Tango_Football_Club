@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tango Football Club</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-brand">
+                <img src="images/tangoforces.jpg" alt="Tango Forces Logo" class="header-logo">
+                <h1>Tango Football Club</h1>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="technical-team.html">Technical Team</a></li>
+                <li><a href="roster.html">Roster</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="league-standings.html">Standings</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🏆 MOSSL CHAMPIONS 2025/26</span>
+                </div>
+                <h1><img src="images/tangoforces1.jpg" alt="Tango Forces Logo" class="hero-logo"> Tango Football Club</h1>
+                <p class="hero-subtitle">Excellence in Every Match • Champions of Masvingo</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">⚽</span>
+                        <span class="stat-number" id="hero-played">37</span>
+                        <span class="stat-label">Games</span>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="stat-item">
+                        <span class="stat-icon">🏆</span>
+                        <span class="stat-number" id="hero-points">86</span>
+                        <span class="stat-label">Pts</span>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="stat-item">
+                        <span class="stat-icon">🥇</span>
+                        <span class="stat-number" id="hero-pos">1st</span>
+                        <span class="stat-label">Pos</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="roster.html" class="btn-primary">Meet the Team</a>
+                    <a href="matches.html" class="btn-secondary">View Matches</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent/Next Match Section -->
+        <section class="latest-matches">
+            <div class="section-container">
+                <div id="match-highlight">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-club">
+            <div class="section-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Tango FC</h2>
+                        <p>Tango Football Club is more than just a team – we're a family united by passion for the beautiful game. Founded in 2015, we've grown to become Masvingo's most successful football organization.</p>
+                        <p>Our commitment to excellence, both on and off the pitch, has earned us five league titles and countless memorable moments. We believe in developing not just skilled players, but well-rounded individuals who contribute positively to our community.</p>
+                        <div class="about-values">
+                            <div class="value-item">
+                                <span class="value-icon">🎯</span>
+                                <h4>Excellence</h4>
+                                <p>Striving for perfection</p>
+                            </div>
+                            <div class="value-item">
+                                <span class="value-icon">🤝</span>
+                                <h4>Teamwork</h4>
+                                <p>United we stand, divided we fall</p>
+                            </div>
+                            <div class="value-item">
+                                <span class="value-icon">🌟</span>
+                                <h4>Community</h4>
+                                <p>Giving backto Masvingo and beyond</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <img src="images/tangoforces.jpg" alt="Tango Forces" class="about-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats Section -->
+        <section class="quick-stats">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">⚽</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="quick-points">86</span>
+                        <span class="stat-desc">League Points</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🥅</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="quick-goals">83</span>
+                        <span class="stat-desc">Goals Scored</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="quick-cleansheets">18</span>
+                        <span class="stat-desc">Clean Sheets</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="quick-titles">10</span>
+                        <span class="stat-desc">Titles Won</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- Latest News Section -->
+        <section class="latest-news">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Latest News</h2>
+                    <p>Stay updated with the latest from Tango FC</p>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card featured">
+                        <div class="news-image">
+                            <span class="news-category">The Forces</span>
+                            <img src="images/new2.jpg" alt="Tango Forces" onerror="this.style.display='none'">
+                            <div class="news-overlay"></div>
+                        </div>
+                        <div class="news-content">
+                            <h3>🏆 MOSSL Champions 2025/26!</h3>
+                            <p class="news-date">February 22, 2026</p>
+                            <p>Tango FC secured the title with 86 points and a strong finish that showed unity on and off the pitch.</p>
+
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <span class="news-category">Training</span>
+                            <img src="images/tango1111.jpg" alt="Training Camp" onerror="this.style.display='none'">
+                            <div class="news-overlay"></div>
+                        </div>
+                        <div class="news-content">
+                            <h4>🎯 Pre-Season Training Camp</h4>
+                            <p class="news-date">February 28, 2026</p>
+                            <p>Players are back in camp for focused fitness, tactical drills, and team cohesion ahead of the new season.</p>
+
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <span class="news-category">Transfers</span>
+                            <img src="images/new00.jpeg" alt="New Signings" onerror="this.style.display='none'">
+                            <div class="news-overlay"></div>
+                        </div>
+                        <div class="news-content">
+                            <h4>👥 New Signings Announced</h4>
+                            <p class="news-date">March 10, 2026</p>
+                            <p>Tango FC has added fresh attacking and defensive talent to strengthen the squad ahead of the new campaign.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements-preview">
+            <div class="section-container">
+                <h2>Recent Achievements</h2>
+                <div class="achievement-grid" id="achievements-container">
+                    <!-- Dynamic or static -->
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🏆</span>
+                        <h4>League Champions 2025</h4>
+                        <p>Won the Masvingo Social Soccer League</p>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🥇</span>
+                        <h4>Cup Winners 2024</h4>
+                        <p>Claimed Top 4 Cup trophy</p>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🥇</span>
+                        <h4>League Champions 2023</h4>
+                        <p>Won the Masvingo Social Soccer League with 90 points</p>
+                    </div>
+                </div>
+                <a href="history.html" class="view-all-link">View All Achievements →</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Tango Football Club</p>
+    </footer>
+    <script src="js/app-config.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="13"
+        android:translateY="13"
+        android:scaleX="0.75"
+        android:scaleY="0.75">
+
+        <!-- Outer Shield Border -->
+        <path
+            android:fillColor="#003d82"
+            android:pathData="M54,2 C54,2 98,12 98,35 C98,75 54,106 54,106 C54,106 10,75 10,35 C10,12 54,2 54,2 Z" />
+
+        <!-- White Shield Interior -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M54,6 C54,6 94,15 94,36 C94,72 54,101 54,101 C54,101 14,72 14,36 C14,15 54,6 54,6 Z" />
+
+        <!-- Blue Inner Border -->
+        <path
+            android:strokeColor="#003d82"
+            android:strokeWidth="1.5"
+            android:pathData="M54,10 C54,10 90,18 90,37 C90,69 54,96 54,96 C54,96 18,69 18,37 C18,18 54,10 54,10 Z" />
+
+        <!-- Banner -->
+        <path
+            android:fillColor="#003d82"
+            android:pathData="M4,35 Q54,25 104,35 L104,50 Q54,40 4,50 Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,37 Q54,28 102,37 L102,48 Q54,39 6,48 Z" />
+
+        <!-- Text "TANGO FC" (Simulated with paths for better compatibility) -->
+        <group android:translateX="25" android:translateY="32">
+             <!-- T -->
+             <path android:fillColor="#003d82" android:pathData="M2,3 h8 v1.5 h-3 v5 h-2 v-5 h-3 z" />
+             <!-- A -->
+             <path android:fillColor="#003d82" android:pathData="M12,9.5 l3,-6.5 l3,6.5 h-1.5 l-0.5,-1.2 h-2.5 l-0.5,1.2 z M14,7 h1.8 l-0.9,-2 z" />
+             <!-- N -->
+             <path android:fillColor="#003d82" android:pathData="M21,3 h1.8 l2.5,4.5 v-4.5 h1.5 v6.5 h-1.5 l-2.8,-5 v5 h-1.5 z" />
+             <!-- G -->
+             <path android:fillColor="#003d82" android:pathData="M30,6 a3,3 0 0 1 6,0 v0.5 h-2.5 v-0.5 a0.8,0.8 0 0 0 -1.6,0 v1 a0.8,0.8 0 0 0 1.6,0 v-0.2 h-0.8 v-1.5 h2.5 v2.5 a3,3 0 0 1 -6,0 z" />
+             <!-- O -->
+             <path android:fillColor="#003d82" android:pathData="M40,6 a3,3 0 0 1 6,0 v1 a3,3 0 0 1 -6,0 z M42,6 v1 a1,1 0 0 0 2,0 v-1 a1,1 0 0 0 -2,0 z" />
+
+             <!-- Space -->
+
+             <!-- F -->
+             <path android:fillColor="#003d82" android:pathData="M50,3 h5 v1.5 h-3.5 v1 h3 v1.5 h-3 v2.5 h-1.5 z" />
+             <!-- C -->
+             <path android:fillColor="#003d82" android:pathData="M58,6 a3,3 0 0 1 6,0 v0.5 h-1.5 v-0.5 a1.5,1.5 0 0 0 -3,0 v1 a1.5,1.5 0 0 0 3,0 v-0.5 h1.5 v0.5 a3,3 0 0 1 -6,0 z" />
+        </group>
+
+        <!-- Football -->
+        <group android:translateX="54" android:translateY="62">
+            <!-- Ball Base -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:strokeColor="#003d82"
+                android:strokeWidth="1"
+                android:pathData="M0,0 m-18,0 a18,18 0 1,1 36,0 a18,18 0 1,1 -36,0" />
+
+            <!-- Ball Pentagons (Simplified) -->
+            <path android:fillColor="#003d82" android:pathData="M0,-6 L5,-2 L3,4 L-3,4 L-5,-2 Z" />
+            <path android:fillColor="#003d82" android:pathData="M-12,-8 L-8,-11 L-4,-9 L-6,-5 L-10,-5 Z" />
+            <path android:fillColor="#003d82" android:pathData="M12,-8 L8,-11 L4,-9 L6,-5 L10,-5 Z" />
+            <path android:fillColor="#003d82" android:pathData="M0,15 L4,11 L3,7 L-3,7 L-4,11 Z" />
+            <path android:fillColor="#003d82" android:pathData="M-14,4 L-10,7 L-14,11 L-18,9 L-18,5 Z" />
+            <path android:fillColor="#003d82" android:pathData="M14,4 L10,7 L14,11 L18,9 L18,5 Z" />
+        </group>
+
+        <!-- Boots (Stylized) -->
+        <path
+            android:fillColor="#222222"
+            android:pathData="M25,75 Q28,70 35,78 L40,85 Q30,90 22,82 Z" />
+        <path
+            android:fillColor="#222222"
+            android:pathData="M83,75 Q80,70 73,78 L68,85 Q78,90 86,82 Z" />
+
+        <!-- Crown -->
+        <path
+            android:fillColor="#003d82"
+            android:pathData="M54,88 L58,82 L62,88 L58,92 L50,92 L46,88 L50,82 Z" />
+
+        <!-- "Est 2015" (Represented) -->
+        <path
+            android:fillColor="#003d82"
+            android:pathData="M45,98 h18 v2 h-18 z" />
+
+    </group>
+</vector>

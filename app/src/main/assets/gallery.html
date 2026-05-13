@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gallery - Tango Football Club</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="header-brand">
+            <img src="images/tangoforces.jpg" alt="Tango Forces Logo" class="header-logo">
+            <h1>Tango Football Club</h1>
+        </div>
+        <div class="header-actions">
+            <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </button>
+        </div>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="technical-team.html">Technical Team</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="matches.html">Matches</a></li>
+            <li><a href="stats.html">Stats</a></li>
+            <li><a href="league-standings.html">Standings</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO SECTION (Matches Videos Style) -->
+    <section class="page-hero">
+        <h2>Club Gallery</h2>
+        <p>Photos from matches and team events</p>
+    </section>
+
+    <!-- FILTER BUTTONS -->
+    <div class="gallery-filters">
+        <button onclick="filterGallery('all')">All</button>
+        <button onclick="filterGallery('matchday')">Matchday</button>
+        <button onclick="filterGallery('champions')">Champions</button>
+        <button class="active" onclick="filterGallery('newseason')">2026 Season</button>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery-container">
+
+        <div class="subsection">
+            <h3>2026 Season</h3>
+            <div class="gallery-grid" id="newseasonPicturesGrid"></div>
+        </div>
+
+        <div class="subsection">
+            <h3>Matchday Pictures</h3>
+            <div class="gallery-grid" id="matchdayPicturesGrid"></div>
+        </div>
+
+        <div class="subsection">
+            <h3>2025/26 MOSSL Champions</h3>
+            <div class="gallery-grid" id="celebrationsPicturesGrid"></div>
+        </div>
+
+       
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">✖</span>
+        <img id="lightboxImage">
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Tango Football Club</p>
+</footer>
+
+<script src="js/gallery.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>

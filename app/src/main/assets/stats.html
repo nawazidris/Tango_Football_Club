@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tango FC Stats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-brand">
+                <img src="images/tangoforces.jpg" alt="Tango Forces Logo" class="header-logo">
+                <h1>Tango Football Club</h1>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="technical-team.html">Technical Team</a></li>
+                <li><a href="roster.html">Roster</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="stats.html" class="active">Stats</a></li>
+                <li><a href="league-standings.html">Standings</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="stats-hero">
+            <div class="hero-copy">
+                <span class="hero-tag">Official Season Report</span>
+                <h2>Tango FC Performance Dashboard</h2>
+                <p>Football statistics powered by league standings and player metrics for the current campaign.</p>
+            </div>
+            <div class="hero-badge">
+                <img src="images/tangoforces.jpg" alt="Tango Forces Logo" class="badge-icon">
+                <div class="badge-copy">
+                    <span>Club</span>
+                    <strong>Tango FC</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-overview">
+            <div class="stats-summary-cards">
+                <div class="summary-card">
+                    <span class="summary-icon">📅</span>
+                    <span class="summary-label">Matches Played</span>
+                    <strong id="summaryMatches">0</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon">⚽</span>
+                    <span class="summary-label">Goals Scored</span>
+                    <strong id="summaryGoalsFor">0</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon">🧤</span>
+                    <span class="summary-label">Goals Conceded</span>
+                    <strong id="summaryGoalsAgainst">0</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon">📈</span>
+                    <span class="summary-label">Goal Difference</span>
+                    <strong id="summaryGoalDiff">0</strong>
+                </div>
+            </div>
+
+            <div class="league-summary-cards">
+                <div class="league-summary-card">
+                    <span class="summary-label">League Position</span>
+                    <strong id="summaryPosition">-</strong>
+                </div>
+                <div class="league-summary-card">
+                    <span class="summary-label">Wins</span>
+                    <strong id="summaryWins">-</strong>
+                </div>
+                <div class="league-summary-card">
+                    <span class="summary-label">Draws</span>
+                    <strong id="summaryDraws">-</strong>
+                </div>
+                <div class="league-summary-card">
+                    <span class="summary-label">Losses</span>
+                    <strong id="summaryLosses">-</strong>
+                </div>
+                <div class="league-summary-card">
+                    <span class="summary-label">Points</span>
+                    <strong id="summaryPoints">-</strong>
+                </div>
+            </div>
+            
+            <div class="team-metrics-grid">
+                <div class="team-metric-card">
+                    <span class="metric-label">Goals per Match</span>
+                    <strong id="summaryGoalsPerMatch">-</strong>
+                </div>
+                <div class="team-metric-card">
+                    <span class="metric-label">Points per Match</span>
+                    <strong id="summaryPointsPerGame">-</strong>
+                </div>
+                <div class="team-metric-card">
+                    <span class="metric-label">Win Percentage</span>
+                    <strong id="summaryWinPct">-</strong>
+                </div>
+                <div class="team-metric-card">
+                    <span class="metric-label">Recent Form</span>
+                    <div class="form-badges" id="summaryForm">-</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <h2>Last 5 Matches Form</h2>
+            <div class="form-panel-content">
+                <div class="recent-form-list" id="recentFormMatches"></div>
+            </div>
+        </section>
+
+        <section class="top-scorers">
+            <h2>Top Scorers</h2>
+            <div class="top-scorers-cards" id="topScorersContainer"></div>
+        </section>
+
+        <section class="stats-table-section">
+            <h2>Player Stats Table</h2>
+            <div class="table-responsive">
+                <table id="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Position</th>
+                            <th>P</th>
+                            <th>G</th>
+                            <th>A</th>
+                            <th>CS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <h2>Team Efficiency</h2>
+            <div class="chart-card" id="goalsAssistsChart">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 Tango Football Club</p>
+    </footer>
+    <script src="js/app-config.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/stats.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tango Football Club</string>
+    <string name="app_description">Official app for Tango FC - Stay updated with matches, standings, and player stats</string>
+    <string name="app_version">1.0.0</string>
+    <string name="app_developer">Tango FC</string>
+    <string name="shortcut_long_label">View Latest Matches</string>
+</resources>

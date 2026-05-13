@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TangoFootballClub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/tango_primary</item>
+        <item name="colorPrimaryVariant">@color/tango_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/tango_accent</item>
+        <item name="colorSecondaryVariant">@color/tango_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/tango_primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/tango_background</item>
+        <item name="colorSurface">@color/tango_surface</item>
+        <item name="colorOnSurface">@color/tango_text_primary</item>
+        <!-- Error colors -->
+        <item name="colorError">@color/teal_200</item>
+        <item name="colorOnError">@color/black</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.TangoFootballClub.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/tango_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground_scaled</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.TangoFootballClub</item>
+    </style>
+</resources>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Matches & Fixtures - Tango Football Club</title>
+<link rel="stylesheet" href="css/matches.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="header-top">
+        <div class="header-brand">
+            <img src="images/tangoforces.jpg" alt="Tango Forces Logo" class="header-logo">
+            <h1>Tango Football Club</h1>
+        </div>
+        <div class="header-actions">
+            <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </button>
+        </div>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="technical-team.html">Technical Team</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="matches.html" class="active">Matches</a></li>
+            <li><a href="stats.html">Stats</a></li>
+            <li><a href="league-standings.html">Standings</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section class="matches-header">
+    <h2>⚽ Matches & Fixtures</h2>
+    <p>Season 2025-2026</p>
+    <div class="season-badge"><span>🏆 Current Season</span></div>
+</section>
+
+<section class="matches-filters">
+    <button class="match-filter-btn active" data-filter="all">All Matches</button>
+    <button class="match-filter-btn" data-filter="upcoming">Upcoming</button>
+    <button class="match-filter-btn" data-filter="completed">Completed</button>
+</section>
+
+<div class="matches-container" id="matchesContainer"></div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Tango Football Club</p>
+</footer>
+
+<script src="js/app-config.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/matches.js"></script>
+</body>
+</html>
