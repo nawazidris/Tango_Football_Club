@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground_image" />
+            android:src="@drawable/nawaz_splash" />
 
         <!-- Optional overlay to make text more readable if you add any -->
         <View

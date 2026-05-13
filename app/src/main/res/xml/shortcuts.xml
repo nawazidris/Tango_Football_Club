@@ -4,7 +4,7 @@
     android:enabled="true"
     android:icon="@drawable/ic_notification_icon"
     android:shortcutShortLabel="@string/app_name"
-    android:shortcutLongLabel="View Latest Matches">
+    android:shortcutLongLabel="@string/shortcut_long_label">
     <intent
         android:action="android.intent.action.VIEW"
         android:targetPackage="com.tangofc.app"
