@@ -4,8 +4,8 @@
  */
 
 // REPLACE THIS with your actual GitHub username and repository name
-const GITHUB_USERNAME = 'Edrice';
-const GITHUB_REPO = 'TangoFootballClub';
+const GITHUB_USERNAME = 'nawazidris';
+const GITHUB_REPO = 'Tango_FC_Apk';
 const ONLINE_DATA_BASE_URL = `https://${GITHUB_USERNAME}.github.io/${GITHUB_REPO}/app/src/main/assets/`;
 
 // Detect if running in Android WebView
