@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let allMatches = [];
 
 /* ================= HELPER: GET PLAYER NAME ================= */
@@ -245,4 +246,253 @@ document.addEventListener('DOMContentLoaded', () => {
     if(refreshBtn){
         refreshBtn.addEventListener('click', fetchMatches);
     }
+=======
+let allMatches = [];
+
+/* ================= HELPER: GET PLAYER NAME ================= */
+function getPlayerName(id){
+    const allPlayers = JSON.parse(localStorage.getItem('allPlayers') || '[]');
+    const p = allPlayers.find(x => x.id === id);
+    return p ? p.name : "Unknown";
+}
+
+function getPlayerById(id){
+    const allPlayers = JSON.parse(localStorage.getItem('allPlayers') || '[]');
+    const adminPlayers = JSON.parse(localStorage.getItem('adminPlayers') || '[]');
+    return adminPlayers.find(x => x.id === id) || allPlayers.find(x => x.id === id);
+}
+
+function getPlayerByName(playerName){
+    if(!playerName) return null;
+    const normalized = playerName.trim().toLowerCase();
+    const allPlayers = JSON.parse(localStorage.getItem('allPlayers') || '[]');
+    const adminPlayers = JSON.parse(localStorage.getItem('adminPlayers') || '[]');
+    return [...adminPlayers, ...allPlayers].find(p =>
+        (p.name && p.name.trim().toLowerCase() === normalized) ||
+        (p.nickname && p.nickname.trim().toLowerCase() === normalized)
+    );
+}
+
+function getPlayerDisplayName(event){
+    const playerName = event.playerId ? getPlayerName(event.playerId) : event.player || 'Unknown';
+    const player = event.playerId ? getPlayerById(event.playerId) : getPlayerByName(playerName);
+    if(player && player.nickname){
+        return player.nickname;
+    }
+    return formatEventName(playerName);
+}
+
+function formatEventName(fullName){
+    if(!fullName) return 'Unknown';
+    return fullName.split(' ')[0];
+}
+
+function getSeasonLabel(dateString){
+    const date = new Date(dateString);
+    if(isNaN(date)) return 'Season';
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    if(month >= 3) return `${year} Season`;
+    return `${year - 1}/${year} Season`;
+}
+
+/* ================= FETCH MATCHES ================= */
+const fetchMatches = async () => {
+    const container = document.getElementById('matchesContainer');
+    container.innerHTML = `<div class="loading-matches"><p>Loading matches...</p></div>`;
+
+    try {
+        // Fetch static JSON using AppConfig for proper path handling
+        console.log('[Matches] Attempting to fetch matches.json...');
+        const response = await (window.AppConfig?.fetchAsset
+            ? window.AppConfig.fetchAsset('data/matches.json')
+            : fetch('data/matches.json'));
+        console.log('[Matches] Fetch response:', response);
+        let jsonMatches = await response.json();
+        console.log('[Matches] Loaded', jsonMatches.length, 'matches from JSON');
+
+        // Get admin matches from localStorage
+        let adminMatches = [];
+        const adminMatchesData = localStorage.getItem('adminMatches');
+
+        if (adminMatchesData) {
+            adminMatches = JSON.parse(adminMatchesData).map(match => ({
+                ...match,
+                homeScore: match.homeScore ?? null,
+                awayScore: match.awayScore ?? null,
+                competition: match.competition || 'League',
+                events: match.events || []
+            }));
+            console.log('[Matches] Loaded', adminMatches.length, 'admin matches from localStorage');
+        }
+
+        // Merge both
+        allMatches = [...jsonMatches, ...adminMatches];
+        console.log('[Matches] Total matches:', allMatches.length);
+
+        // Sort by date
+        allMatches.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+        displayMatches(allMatches, 'all');
+
+    } catch (error) {
+        console.error('[Matches] Error fetching matches:', error);
+
+        // fallback to admin matches only
+        const adminMatchesData = localStorage.getItem('adminMatches');
+
+        if(adminMatchesData){
+            allMatches = JSON.parse(adminMatchesData).map(match => ({
+                ...match,
+                homeScore: match.homeScore ?? null,
+                awayScore: match.awayScore ?? null,
+                competition: match.competition || 'League',
+                events: match.events || []
+            }));
+
+            displayMatches(allMatches, 'all');
+        } else {
+            container.innerHTML = `<div class="no-matches"><h3>Unable to load matches</h3></div>`;
+        }
+    }
+};
+
+/* ================= DISPLAY MATCHES ================= */
+const displayMatches = (matches, filter='all') => {
+    const container = document.getElementById('matchesContainer');
+    container.innerHTML = '';
+
+    let filtered = matches;
+
+    if(filter !== 'all'){
+        filtered = matches.filter(m => m.status === filter);
+    }
+
+    if(filtered.length === 0){
+        container.innerHTML = `<p class="no-matches-text">No matches found</p>`;
+        return;
+    }
+
+    filtered.forEach(match => {
+        const isCompleted = match.status === 'completed';
+        const matchDate = new Date(match.date).toLocaleDateString(undefined, {
+            day: 'numeric', month: 'short', year: 'numeric'
+        });
+
+        const matchCard = document.createElement('div');
+        matchCard.className = `match-card ${isCompleted ? 'completed' : 'upcoming'}`;
+
+        const homeEventsText = renderEventsText(match, 'home');
+        const awayEventsText = renderEventsText(match, 'away');
+        const hasEvents = homeEventsText || awayEventsText;
+
+        matchCard.className = `mobile-card ${isCompleted ? 'completed' : 'upcoming'}`;
+        matchCard.innerHTML = `
+            <div class="mobile-header">
+                <span>🏆 ${match.competition || 'League'}</span>
+                <span class="match-date">${matchDate}</span>
+                <span>🏟️ ${match.venue ? match.venue.substring(0, 24) : 'TBA'}</span>
+            </div>
+            <div class="mobile-main">
+                <div class="team">${match.homeTeam}</div>
+                <div class="score">${isCompleted ? `${match.homeScore}–${match.awayScore}` : 'VS'}</div>
+                <div class="team">${match.awayTeam}</div>
+            </div>
+            ${hasEvents ? `
+            <div class="mobile-events">
+                <div class="event-text left">${homeEventsText || ''}</div>
+                <div class="event-text right">${awayEventsText || ''}</div>
+            </div>
+            ` : ''}
+        `;
+
+        container.appendChild(matchCard);
+    });
+};
+
+/* ================= RENDER EVENTS ================= */
+const renderEventsText = (match, teamType) => {
+
+    if(!match.events || match.events.length === 0) return '';
+
+    const teamEvents = match.events.filter(
+        e => e.team && e.team.toLowerCase() === teamType.toLowerCase()
+    );
+
+    if(teamEvents.length === 0) return '';
+
+    const formatted = teamEvents.map(e => {
+        let icon = '';
+        let text = '';
+
+        const displayName = getPlayerDisplayName(e);
+        const assistPlayer = e.assist ? getPlayerDisplayName({ player: e.assist }) : e.assist;
+        const playerOut = e.player_out ? getPlayerDisplayName({ player: e.player_out }) : e.player_out;
+        const playerIn = e.player_in ? getPlayerDisplayName({ player: e.player_in }) : e.player_in;
+
+        switch(e.type){
+            case "goal":
+                icon = "⚽";
+                text = `${displayName}`;
+                if(e.minute) text += ` ${e.minute}'`;
+                if(e.assist){
+                    text += ` 🅰️ ${assistPlayer}`;
+                }
+                break;
+
+            case "assist":
+                icon = "🅰️";
+                text = `${displayName}`;
+                if(e.minute) text += ` ${e.minute}'`;
+                break;
+
+            case "yellow_card":
+                icon = "🟨";
+                text = `${displayName}`;
+                if(e.minute) text += ` ${e.minute}'`;
+                break;
+
+            case "red_card":
+                icon = "🟥";
+                text = `${displayName}`;
+                if(e.minute) text += ` ${e.minute}'`;
+                break;
+
+            case "substitution":
+                icon = "🔁";
+                text = `${playerOut} ↔ ${playerIn}`;
+                break;
+        }
+
+        return `${icon} ${text}`;
+    });
+
+    return formatted.join('; ');
+};
+
+/* ================= INIT ================= */
+document.addEventListener('DOMContentLoaded', () => {
+
+    fetchMatches();
+
+    // FILTER BUTTONS
+    const filterButtons = document.querySelectorAll('.match-filter-btn');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            displayMatches(allMatches, filter);
+        });
+    });
+
+    // REFRESH BUTTON
+    const refreshBtn = document.getElementById('refreshMatches');
+
+    if(refreshBtn){
+        refreshBtn.addEventListener('click', fetchMatches);
+    }
+>>>>>>> 19de20aede773e25a288670608f7d5b9ca18a4f3
 });
