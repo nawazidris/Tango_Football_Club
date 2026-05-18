@@ -948,19 +948,19 @@ to {
     .nav-links {
         display: none;
         flex-direction: column;
-        width: min(220px, 90vw) !important;
+        width: min(150px, 85vw) !important;
         position: absolute;
-        top: calc(100% + 6px);
+        top: calc(100% + 4px);
         right: 8px;
         left: auto;
         background: var(--card-bg) !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
         z-index: 1000;
-        padding: 6px 0;
-        border-radius: 16px;
-        max-height: calc(100vh - 140px);
+        padding: 4px 0;
+        border-radius: 14px;
+        max-height: 220px !important;
         overflow-y: auto;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
     }
 
     .nav-links.show {
@@ -973,8 +973,8 @@ to {
 
     .nav-links li a {
         display: block;
-        padding: 10px 14px;
-        font-size: 14px;
+        padding: 5px 8px;
+        font-size: 12px;
         width: 100%;
         border-radius: 0;
         text-align: left;

@@ -791,20 +791,20 @@ section h2::before {
 
     .nav-links {
         display: none;
-
         flex-direction: column;
-
         position: absolute;
-        top: 100%;
-        left: 0;
-
-        width: 100%;
-
-        padding: 10px 0;
-
-        background: #ffffff;
-
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        top: calc(100% + 4px);
+        right: 8px;
+        left: auto;
+        width: min(150px, 85vw);
+        padding: 4px 0;
+        background: var(--card-bg);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+        z-index: 1000;
+        border-radius: 14px;
+        max-height: 220px;
+        overflow-y: auto;
+        border: 1px solid rgba(255,255,255,0.12);
     }
 
     .nav-links.show {
@@ -817,12 +817,9 @@ section h2::before {
 
     .nav-links li a {
         width: 100%;
-
-        padding: 8px 16px;
+        padding: 6px 10px;
         font-size: 12px;
-
         border-radius: 0;
-
         text-align: left;
 
         border-bottom: 1px solid rgba(0,0,0,0.05);

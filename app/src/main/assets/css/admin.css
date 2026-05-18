@@ -955,14 +955,19 @@ to {
     .nav-links {
         display: none;
         flex-direction: column;
-        width: 100%;
+        width: min(150px, 85vw);
         position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        top: calc(100% + 4px);
+        right: 8px;
+        left: auto;
+        background: var(--card-bg);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.16);
         z-index: 1000;
-        padding: 10px 0;
+        padding: 4px 0;
+        border-radius: 14px;
+        max-height: 220px;
+        overflow-y: auto;
+        border: 1px solid rgba(255,255,255,0.12);
     }
 
     .nav-links.show {
@@ -975,11 +980,14 @@ to {
 
     .nav-links li a {
         display: block;
-        padding: 12px 20px;
+        padding: 6px 10px;
+        font-size: 12px;
         width: 100%;
         border-radius: 0;
         text-align: left;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        color: var(--text-color);
+        background: transparent;
     }
 
     .players-cube-grid {

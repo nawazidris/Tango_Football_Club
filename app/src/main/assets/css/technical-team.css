@@ -202,8 +202,19 @@ nav {
     list-style: none;
     display: none; /* Hidden by default on mobile */
     flex-direction: column;
-    width: 100%;
-    padding: 0;
+    width: min(150px, 85vw);
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 8px;
+    left: auto;
+    background: var(--card-bg);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+    z-index: 1000;
+    padding: 4px 0;
+    border-radius: 14px;
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid rgba(255,255,255,0.12);
     margin: 0;
 }
 
@@ -219,9 +230,9 @@ nav {
 .nav-links li a {
     text-decoration: none;
     color: #0c2340;
-    padding: 12px 20px;
+    padding: 6px 10px;
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     transition: all 0.2s ease;
 }
